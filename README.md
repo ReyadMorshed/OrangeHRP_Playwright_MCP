@@ -122,5 +122,3 @@ Generate a **Playwright end-to-end testing framework** with **Page Object Model 
 👉 Avoid shortcuts—everything should be cleanly separated into utilities, fixtures, pages, and configs.
 
 ---
-
-Would you like me to **expand this prompt into a ready-to-use project skeleton with actual TypeScript files** (each file fully coded), or keep it as a single meta-instruction prompt for MCP?
