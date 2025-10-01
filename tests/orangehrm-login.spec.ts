@@ -1,12 +1,21 @@
-import { test, expect } from '../utils/testContext';
+import { test } from '../fixtures/sessionLogin';
+import { expect } from '@playwright/test';
 import { orangeHRMTestData } from '../config/testData';
 
-// E2E Login Test for OrangeHRM using POM
-
+/**
+ * OrangeHRM Login E2E Tests using session-based login fixture.
+ */
 test.describe('OrangeHRM Login', () => {
-  test('should login successfully and see Dashboard', async ({ orangeHRMLoginPage }) => {
-    await orangeHRMLoginPage.goto();
-    await orangeHRMLoginPage.login(orangeHRMTestData.username, orangeHRMTestData.password);
-    await expect(orangeHRMLoginPage.dashboardHeader).toBeVisible();
+  /**
+   * Logs in before each test using the session fixture.
+   * Ensures all tests start from a logged-in state.
+   */
+  test.beforeEach(async ({ loggedInPage }) => {
+    // Already logged in by fixture, can add navigation or checks if needed
+    await loggedInPage.goto('/');
+  });
+
+  test('should see Dashboard after login', async ({ loggedInPage }) => {
+    await expect(loggedInPage.locator('h6:has-text("Dashboard")')).toBeVisible();
   });
 });
