@@ -59,7 +59,7 @@ Generate a **Playwright end-to-end testing framework** with **Page Object Model 
    * **Reusable Login Fixture**
 
      * Stored under `fixtures/` folder.
-     * Uses `auth.json` (stored under `data/`) for session storage.
+     * Uses `auth.json` (stored under `data/`) for session storage. Always perform a fresh login for each test run (browser-independent and robust)
      * Fixture returns a logged-in page object (e.g., `getLoggedInPage` or similar).
 
 8. **Do Not Use**
